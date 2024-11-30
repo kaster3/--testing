@@ -1,0 +1,323 @@
+# serializer version: 1
+# name: TestTaskRepository.test_add_task
+  list([
+    dict({
+      'category': 'Личное',
+      'description': 'This is a new task',
+      'due_date': '2025-12-23',
+      'id': 5,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'New Task',
+    }),
+    dict({
+      'category': 'Обучение',
+      'description': 'This is task 2',
+      'due_date': '2025-12-23',
+      'id': 6,
+      'priority': 'Низкий',
+      'status': 'Не выполнена',
+      'title': 'Task 2',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_delete_task
+  list([
+    dict({
+      'category': 'Личное',
+      'description': 'Description 2',
+      'due_date': '2025-12-23',
+      'id': 2,
+      'priority': 'Низкий',
+      'status': 'Не выполнена',
+      'title': 'Task 2',
+    }),
+    dict({
+      'category': 'Обучение',
+      'description': '',
+      'due_date': '2025-12-23',
+      'id': 3,
+      'priority': 'Низкий',
+      'status': 'Выполнено',
+      'title': 'Task 3',
+    }),
+    dict({
+      'category': 'Работа',
+      'description': 'Description 4',
+      'due_date': '2025-12-23',
+      'id': 4,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 4',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_get_all_tasks
+  list([
+    dict({
+      'category': 'Работа',
+      'description': 'Описание 1',
+      'due_date': '2025-12-23',
+      'id': 1,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 1',
+    }),
+    dict({
+      'category': 'Личное',
+      'description': 'Description 2',
+      'due_date': '2025-12-23',
+      'id': 2,
+      'priority': 'Низкий',
+      'status': 'Не выполнена',
+      'title': 'Task 2',
+    }),
+    dict({
+      'category': 'Обучение',
+      'description': '',
+      'due_date': '2025-12-23',
+      'id': 3,
+      'priority': 'Низкий',
+      'status': 'Выполнено',
+      'title': 'Task 3',
+    }),
+    dict({
+      'category': 'Работа',
+      'description': 'Description 4',
+      'due_date': '2025-12-23',
+      'id': 4,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 4',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_get_task_by_id[1]
+  dict({
+    'category': 'Работа',
+    'description': 'Описание 1',
+    'due_date': '2025-12-23',
+    'id': 1,
+    'priority': 'Высокий',
+    'status': 'Не выполнена',
+    'title': 'Task 1',
+  })
+# ---
+# name: TestTaskRepository.test_get_task_by_id[2]
+  dict({
+    'category': 'Личное',
+    'description': 'Description 2',
+    'due_date': '2025-12-23',
+    'id': 2,
+    'priority': 'Низкий',
+    'status': 'Не выполнена',
+    'title': 'Task 2',
+  })
+# ---
+# name: TestTaskRepository.test_get_task_by_id[3]
+  dict({
+    'category': 'Обучение',
+    'description': '',
+    'due_date': '2025-12-23',
+    'id': 3,
+    'priority': 'Низкий',
+    'status': 'Выполнено',
+    'title': 'Task 3',
+  })
+# ---
+# name: TestTaskRepository.test_get_tasks_by_status[TaskStatus.COMPLETED-1]
+  list([
+    dict({
+      'category': 'Обучение',
+      'description': '',
+      'due_date': '2025-12-23',
+      'id': 3,
+      'priority': 'Низкий',
+      'status': 'Выполнено',
+      'title': 'Task 3',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_get_tasks_by_status[TaskStatus.INCOMPLETE-3]
+  list([
+    dict({
+      'category': 'Работа',
+      'description': 'Описание 1',
+      'due_date': '2025-12-23',
+      'id': 1,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 1',
+    }),
+    dict({
+      'category': 'Личное',
+      'description': 'Description 2',
+      'due_date': '2025-12-23',
+      'id': 2,
+      'priority': 'Низкий',
+      'status': 'Не выполнена',
+      'title': 'Task 2',
+    }),
+    dict({
+      'category': 'Работа',
+      'description': 'Description 4',
+      'due_date': '2025-12-23',
+      'id': 4,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 4',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_search_by_key_word[Task-4]
+  list([
+    dict({
+      'category': 'Работа',
+      'description': 'Описание 1',
+      'due_date': '2025-12-23',
+      'id': 1,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 1',
+    }),
+    dict({
+      'category': 'Личное',
+      'description': 'Description 2',
+      'due_date': '2025-12-23',
+      'id': 2,
+      'priority': 'Низкий',
+      'status': 'Не выполнена',
+      'title': 'Task 2',
+    }),
+    dict({
+      'category': 'Обучение',
+      'description': '',
+      'due_date': '2025-12-23',
+      'id': 3,
+      'priority': 'Низкий',
+      'status': 'Выполнено',
+      'title': 'Task 3',
+    }),
+    dict({
+      'category': 'Работа',
+      'description': 'Description 4',
+      'due_date': '2025-12-23',
+      'id': 4,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 4',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_search_by_key_word[\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e-1]
+  list([
+    dict({
+      'category': 'Обучение',
+      'description': '',
+      'due_date': '2025-12-23',
+      'id': 3,
+      'priority': 'Низкий',
+      'status': 'Выполнено',
+      'title': 'Task 3',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_search_by_key_word[\u0412\u044b\u0441\u043e\u043a\u0438\u0439-2]
+  list([
+    dict({
+      'category': 'Работа',
+      'description': 'Описание 1',
+      'due_date': '2025-12-23',
+      'id': 1,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 1',
+    }),
+    dict({
+      'category': 'Работа',
+      'description': 'Description 4',
+      'due_date': '2025-12-23',
+      'id': 4,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 4',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_search_by_key_word[\u041d\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0430-3]
+  list([
+    dict({
+      'category': 'Работа',
+      'description': 'Описание 1',
+      'due_date': '2025-12-23',
+      'id': 1,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 1',
+    }),
+    dict({
+      'category': 'Личное',
+      'description': 'Description 2',
+      'due_date': '2025-12-23',
+      'id': 2,
+      'priority': 'Низкий',
+      'status': 'Не выполнена',
+      'title': 'Task 2',
+    }),
+    dict({
+      'category': 'Работа',
+      'description': 'Description 4',
+      'due_date': '2025-12-23',
+      'id': 4,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 4',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_search_by_key_word[\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435-1]
+  list([
+    dict({
+      'category': 'Работа',
+      'description': 'Описание 1',
+      'due_date': '2025-12-23',
+      'id': 1,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 1',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_search_by_key_word[\u0420\u0430\u0431\u043e\u0442\u0430-2]
+  list([
+    dict({
+      'category': 'Работа',
+      'description': 'Описание 1',
+      'due_date': '2025-12-23',
+      'id': 1,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 1',
+    }),
+    dict({
+      'category': 'Работа',
+      'description': 'Description 4',
+      'due_date': '2025-12-23',
+      'id': 4,
+      'priority': 'Высокий',
+      'status': 'Не выполнена',
+      'title': 'Task 4',
+    }),
+  ])
+# ---
+# name: TestTaskRepository.test_update_task
+  dict({
+    'category': 'Личное',
+    'description': 'This is an updated task',
+    'due_date': '2025-12-23',
+    'id': 1,
+    'priority': 'Высокий',
+    'status': 'Не выполнена',
+    'title': 'Updated Task',
+  })
+# ---
