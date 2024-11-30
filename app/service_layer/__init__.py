@@ -1,5 +1,3 @@
-__all__ = (
-    "TaskService",
-)
+__all__ = ("TaskService",)
 
 from .service import TaskService

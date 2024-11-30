@@ -1,5 +1,6 @@
 from app.utils import sort_tasks
 
+
 def test_sort_tasks(created_tasks) -> None:
     unsorted_list = list()
     unsorted_list.append(created_tasks[1])

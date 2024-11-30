@@ -8,4 +8,3 @@ def sort_tasks(tasks: list[Task | None]) -> list[Task | None]:
     и просто для отсортированной выдачи товара
     """
     return sorted(tasks, key=lambda task: task.id)
-
