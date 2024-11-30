@@ -1,45 +1,50 @@
-from service_layer import Service
-from library import LibraryCRUD
-from storage import Storage
+from repository import TaskRepository
+from service_layer import TaskService
+from service_layer.service_helper import ServiceHelper
+from storage import TaskStorage
 
 
 def main() -> None:
     """
     Главный цикл приложения, который обрабатывает взаимодействие с пользователем и вызывает
-    соответствующие методы у класса Service, выполняя основную бизнес логику
+    соответствующие методы у класса TaskService, выполняя основную бизнес логику
     """
-    storage: Storage = Storage()
-    library: LibraryCRUD = LibraryCRUD(storage=storage)
-    service: Service = Service(library=library)
+    storage = TaskStorage()
+    repository = TaskRepository(storage=storage)
+    service_helper = ServiceHelper()
+    service = TaskService(repository=repository, service_helper=service_helper)
 
     while True:
         choice = service.get_choice()
 
         if choice == "1":
-            service.add_book()
+            service.show_tasks()
 
         elif choice == "2":
-            service.remove_book()
+            service.add_task()
 
         elif choice == "3":
-            service.get_books_by_params()
+            service.update_task()
 
         elif choice == "4":
-            service.get_all_books()
+            service.delete_task()
 
         elif choice == "5":
-            service.change_status()
+            service.search_by_key_word()
 
         elif choice == "6":
             print("Выход из программы.")
             break
 
         else:
-            print("Неверный выбор. Выбери число от 1 до 6 включительно.")
+            print("Неверный выбор. Выбери число от 1 до 6 включительно.\n")
 
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as exc:
-        print(f"Кажется это операция не работает, свяжитесь с разработчиком.\n{exc.__class__.__name__} -> {exc}")
+        print(
+            f"Кажется это операция не работает,"
+            f" свяжитесь с разработчиком.\n{exc.__class__.__name__} -> {exc}"
+        )
