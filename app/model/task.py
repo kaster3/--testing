@@ -3,7 +3,7 @@ from datetime import datetime
 from .enums import Category, TaskPriority, TaskStatus
 
 
-# @id_generator
+
 class Task:
     """Основная бизнес сущность с которой будут выполняться все CRUD операции"""
 
@@ -52,3 +52,4 @@ class Task:
             "priority": self.priority.value,
             "status": self.status.value,
         }
+
