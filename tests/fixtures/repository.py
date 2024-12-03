@@ -13,7 +13,7 @@ def repository_with_tasks(repository: TaskRepository):
         title="Task 1",
         description="Описание 1",
         category=Category.JOB,
-        due_date=datetime.strptime("2025-12-23", "%Y-%m-%d"),
+        due_date= "2025-12-23",
         status=TaskStatus.INCOMPLETE,
         priority=TaskPriority.HIGH,
     )
@@ -22,7 +22,7 @@ def repository_with_tasks(repository: TaskRepository):
         title="Task 2",
         description="Description 2",
         category=Category.PERSONAL,
-        due_date=datetime.strptime("2025-12-23", "%Y-%m-%d"),
+        due_date= "2025-12-23",
         status=TaskStatus.INCOMPLETE,
         priority=TaskPriority.LOW,
     )
@@ -31,7 +31,7 @@ def repository_with_tasks(repository: TaskRepository):
         title="Task 3",
         description="",
         category=Category.TRAINING,
-        due_date=datetime.strptime("2025-12-23", "%Y-%m-%d"),
+        due_date= "2025-12-23",
         status=TaskStatus.COMPLETED,
         priority=TaskPriority.LOW,
     )
@@ -40,7 +40,7 @@ def repository_with_tasks(repository: TaskRepository):
         title="Task 4",
         description="Description 4",
         category=Category.JOB,
-        due_date=datetime.strptime("2025-12-23", "%Y-%m-%d"),
+        due_date= "2025-12-23",
         status=TaskStatus.INCOMPLETE,
         priority=TaskPriority.HIGH,
     )

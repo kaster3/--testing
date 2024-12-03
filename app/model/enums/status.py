@@ -9,14 +9,3 @@ class TaskStatus(Enum):
 
     COMPLETED = "Выполнено"
     INCOMPLETE = "Не выполнена"
-
-    @staticmethod
-    def from_value(value: str) -> "TaskStatus":
-        """
-        Метод для получения статуса задачи по его значению, для того чтобы json
-        корректно работал с Enum
-        """
-        for status in TaskStatus:
-            if status.value == value:
-                return status
-        return TaskStatus.COMPLETED
