@@ -1,5 +1,3 @@
-from datetime import datetime
-
 import pytest
 
 from app.model import Category, Task, TaskPriority, TaskStatus
@@ -42,7 +40,7 @@ def created_task():
         title="test title 1",
         description="test description 1",
         category=Category.PERSONAL,
-        due_date=datetime.strptime("2026-12-20", "%Y-%m-%d"),
+        due_date="2026-12-20",
         priority=TaskPriority.HIGH,
         status=TaskStatus.INCOMPLETE,
     )

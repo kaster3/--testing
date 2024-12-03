@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 
 import pytest
 
@@ -23,7 +22,7 @@ def created_tasks(created_task) -> list[Task]:
         title="test title 2",
         description="test description 2",
         category=Category.JOB,
-        due_date=datetime.strptime("2025-12-23", "%Y-%m-%d"),
+        due_date="2025-12-23",
         priority=TaskPriority.LOW,
         status=TaskStatus.INCOMPLETE,
     )
