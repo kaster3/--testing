@@ -1,6 +1,8 @@
 import json
 from datetime import datetime
 
+from app.messages.storage.consts import EMPTY_FILE, SAVE_CHANGES
+from app.messages.storage.message_formatter import format_key_error_message
 from app.model.enums import Category, TaskPriority, TaskStatus
 from app.model.task import Task
 from app.utils import sort_tasks
@@ -14,7 +16,9 @@ class TaskStorage:
         self.storage_file (str): имя файла для хранения задач
     """
 
-    def __init__(self, storage_file: str = "tasks.json") -> None:
+    default_name = "tasks.json"
+
+    def __init__(self, storage_file: str = default_name) -> None:
         self.storage_file = storage_file
 
     def save_task_json(self, tasks) -> None:
@@ -24,7 +28,7 @@ class TaskStorage:
         """
         with open(self.storage_file, "w", encoding="utf-8") as file:
             json.dump([task.to_dict() for task in tasks], file, ensure_ascii=False, indent=4)
-        print("\nИзменения сохранены в файл.\n")
+        print(SAVE_CHANGES)
 
     def load_task_json(self) -> list[Task | None]:
         """
@@ -35,7 +39,8 @@ class TaskStorage:
                 tasks_data = json.load(file)
 
                 # Преобразование словаря в модель Book и создание списка книг
-                # Возможно выглядит сложно потому, что обязательно нужно привести статус в Enum
+                # Возможно выглядит сложно потому, что обязательно нужно привести статус,
+                # категорию и приоритет в Enum, а также дату в datetime
                 unsorted_tasks: list[Task | None] = [
                     Task(
                         **{
@@ -58,8 +63,8 @@ class TaskStorage:
         except FileNotFoundError:
             return []
         except json.JSONDecodeError:
-            print("Пока ваш файл пуст\n")
+            print(EMPTY_FILE)
             return []
         except KeyError as exc:
-            print(f"Ошибка преобразования категории/приоритета/статуса/даты задачи: {exc}")
+            print(format_key_error_message(exc=exc))
             return []

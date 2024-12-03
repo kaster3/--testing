@@ -1,3 +1,9 @@
+from app.messages.service.consts import (
+    INPUT_CHOICES,
+    INPUT_DESCRIPTION,
+    NO_DESCRIPTION,
+    SHOW_TASKS_WRONG_INPUT,
+)
 from app.model import Category, Task, TaskStatus
 from app.repository import TaskRepository
 from app.service_layer.dependencies import get_task, id_generator
@@ -25,10 +31,7 @@ class TaskService:
         """
         Получение всех задач или по категории через TaskRepository
         """
-        choice: str = input(
-            "\nВыбери один из вариантов\n1. Все задачи\n2. Фильтрация по категории\n"
-            "3. Фильтрация по статусу\n\nВаш выбор: "
-        )
+        choice: str = input(INPUT_CHOICES)
         tasks: list[Task | None] = []
         if choice == "1":
             tasks = self.repository.get_all_tasks()
@@ -39,7 +42,7 @@ class TaskService:
             status: TaskStatus = self.service_helper.user_chosen_status()
             tasks = self.repository.get_tasks_by_status(status)
         else:
-            print("\nВводить 1 из вариантов ответа (1, 2, 3)\n")
+            print(SHOW_TASKS_WRONG_INPUT)
             return
 
         self.service_helper.check_tasks(tasks=tasks)
@@ -56,9 +59,7 @@ class TaskService:
         if not title:
             return
         task_data["description"] = (
-            "Нет описания"
-            if not (answer := input("Введите описание задачи или пропустите: ").strip())
-            else answer
+            NO_DESCRIPTION if not (answer := input(INPUT_DESCRIPTION).strip()) else answer
         )
         date = self.service_helper.validate_date()
         if not date:

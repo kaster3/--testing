@@ -5,11 +5,12 @@ import pytest
 
 from app.model import Category, Task, TaskPriority, TaskStatus
 from app.storage import TaskStorage
+from tests.messages.storage import TEST_FILE_NAME
 
 
 @pytest.fixture()
 def storage() -> TaskStorage:
-    file_name = "test_tasks.json"
+    file_name = TEST_FILE_NAME
     storage = TaskStorage(storage_file=file_name)
     yield storage
     os.remove(file_name)

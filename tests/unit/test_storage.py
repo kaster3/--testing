@@ -4,13 +4,14 @@ from syrupy import SnapshotAssertion
 
 from app.model import Task
 from app.storage import TaskStorage
+from tests.messages.storage import TEST_FILE_NAME
 
 
 class TestStorage:
 
     def test_save_task_json(self, created_tasks: list[Task], storage: TaskStorage):
         with open(storage.storage_file, "w", encoding="utf-8") as file:
-            assert file.name == "test_tasks.json"
+            assert file.name == TEST_FILE_NAME
             assert os.path.exists(file.name) is True
             storage.save_task_json(tasks=created_tasks)
 
