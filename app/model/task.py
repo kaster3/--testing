@@ -1,6 +1,7 @@
-from datetime import datetime
+from datetime import date, datetime
 
-from .enums import Category, TaskPriority, TaskStatus
+from app.messages.model.consts import DATE_FORMAT
+from app.model.enums import Category, TaskPriority, TaskStatus
 
 
 class Task:
@@ -22,10 +23,10 @@ class Task:
         self.id = id
         self.title: str = title
         self.description: str = description
-        self.category: Category = category
-        self.due_date: datetime = due_date
-        self.priority: TaskPriority = priority
-        self.status: TaskStatus = status
+        self.category: Category = Category(category)
+        self.due_date: date = datetime.strptime(due_date, DATE_FORMAT).date()
+        self.priority: TaskPriority = TaskPriority(priority)
+        self.status: TaskStatus = TaskStatus(status)
 
     def __str__(self):
         """
