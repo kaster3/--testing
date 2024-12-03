@@ -24,7 +24,9 @@ class TestTaskRepository:
             (TaskStatus.COMPLETED, 1),
         ],
     )
-    def test_get_tasks_by_status(self, status, result, repository_with_tasks, snapshot: SnapshotAssertion):
+    def test_get_tasks_by_status(
+        self, status, result, repository_with_tasks, snapshot: SnapshotAssertion
+    ) -> None:
         tasks = repository_with_tasks.get_tasks_by_status(status=status)
         assert len(tasks) == result
         snapshot.assert_match([task.to_dict() for task in tasks])
@@ -35,7 +37,7 @@ class TestTaskRepository:
             "title": "New Task",
             "description": "This is a new task",
             "category": Category.PERSONAL,
-            "due_date": datetime.strptime("2025-12-23", "%Y-%m-%d"),
+            "due_date": "2025-12-23",
             "priority": TaskPriority.HIGH,
             "status": TaskStatus.INCOMPLETE,
         }
@@ -44,7 +46,7 @@ class TestTaskRepository:
             "title": "Task 2",
             "description": "This is task 2",
             "category": Category.TRAINING,
-            "due_date": datetime.strptime("2025-12-23", "%Y-%m-%d"),
+            "due_date": "2025-12-23",
             "priority": TaskPriority.LOW,
             "status": TaskStatus.INCOMPLETE,
         }

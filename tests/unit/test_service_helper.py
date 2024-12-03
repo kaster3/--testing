@@ -1,4 +1,3 @@
-from datetime import datetime
 from unittest.mock import patch
 
 import pytest
@@ -26,7 +25,7 @@ class TestServiceHelper:
                     mock_print.assert_called_once_with(expected_output)
             else:
                 result = service_helper.validate_date()
-                assert result == datetime.strptime(date, "%Y-%m-%d")
+                assert result == date
 
     @pytest.mark.parametrize(
         "title, expected_output",
