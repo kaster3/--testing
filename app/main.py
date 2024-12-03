@@ -6,15 +6,11 @@ from service_layer.service_helper import ServiceHelper
 from storage import TaskStorage
 
 
-def main() -> None:
+def main(service: TaskService) -> None:
     """
     Главный цикл приложения, который обрабатывает взаимодействие с пользователем и вызывает
     соответствующие методы у класса TaskService, выполняя основную бизнес логику
     """
-    storage = TaskStorage()
-    repository = TaskRepository(storage=storage)
-    service_helper = ServiceHelper()
-    service = TaskService(repository=repository, service_helper=service_helper)
 
     choices = {
         "1": service.show_tasks,
@@ -33,7 +29,11 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    storage = TaskStorage()
+    repository = TaskRepository(storage=storage)
+    service_helper = ServiceHelper()
+    service = TaskService(repository=repository, service_helper=service_helper)
     try:
-        main()
+        main(service=service)
     except Exception as exc:
         print(main_exception(exc=exc))
