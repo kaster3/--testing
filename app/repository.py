@@ -77,6 +77,6 @@ class TaskRepository:
             task
             for task in self.tasks
             if any(
-                key_word.lower() in get_attr_value(task, attr).lower() for attr in task.__slots__,
+                key_word.lower() in get_attr_value(task, attr).lower() for attr in task.__slots__
             )
         ]
