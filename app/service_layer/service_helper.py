@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from app.exceptions import EmptyTitleError, PastTimeError
+from app.messages.model.consts import DATE_FORMAT
 from app.model import Category, Task, TaskPriority, TaskStatus
 
 
@@ -152,19 +153,18 @@ class ServiceHelper:
             print("Задачи не найдены.\n")
 
     @staticmethod
-    def validate_date() -> datetime | None:
+    def validate_date() -> str | None:
         """
         Получаем дату от пользователя и валидируем ее по формату "%Y-%m-%d"
         и делаем невозможным внести дату меньше текущей
         """
 
-        date_format = "%Y-%m-%d"
         input_date = input("Введите дедлайн задачи в формате 'YYYY-MM-DD': ")
         try:
-            input_date = datetime.strptime(input_date, date_format)
+            formatted_date = datetime.strptime(input_date, DATE_FORMAT)
             current_date = datetime.now().date()
             try:
-                if input_date.date() < current_date:
+                if formatted_date.date() < current_date:
                     raise PastTimeError()
             except PastTimeError:
                 print("Ошибка: Дедлайн не может быть в прошлом.\n")
