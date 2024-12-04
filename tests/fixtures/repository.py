@@ -1,7 +1,7 @@
 import pytest
 
 from app.model import Category, TaskPriority, TaskStatus
-from app.repository import TaskRepository
+from app.data_accesor_layer.repository import TaskRepository
 
 
 @pytest.fixture()

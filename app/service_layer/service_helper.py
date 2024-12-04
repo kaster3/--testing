@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from app.exceptions import EmptyTitleError, PastTimeError
+from app.utils.exceptions import EmptyTitleError, PastTimeError
 from app.messages.model.consts import DATE_FORMAT
 from app.model import Category, Task, TaskPriority, TaskStatus
 

@@ -3,7 +3,7 @@ import json
 from app.messages.storage.consts import EMPTY_FILE, SAVE_CHANGES
 from app.messages.storage.message_formatter import format_key_error_message
 from app.model.task import Task
-from app.utils import sort_tasks
+from app.utils.sort_tasks import sort_tasks
 
 
 class TaskStorage:
@@ -14,7 +14,7 @@ class TaskStorage:
         self.storage_file (str): имя файла для хранения задач
     """
 
-    default_name = "tasks.json"
+    default_name = "storage_layer/tasks.json"
 
     def __init__(self, storage_file: str = default_name) -> None:
         self.storage_file = storage_file

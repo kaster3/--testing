@@ -1,7 +1,7 @@
 from enum import Enum
 
 from app.model import Category, Task, TaskStatus
-from app.storage import TaskStorage
+from app.storage_layer.storage import TaskStorage
 
 
 class TaskRepository:

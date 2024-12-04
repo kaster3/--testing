@@ -3,7 +3,7 @@ import os
 import pytest
 
 from app.model import Category, Task, TaskPriority, TaskStatus
-from app.storage import TaskStorage
+from app.storage_layer.storage import TaskStorage
 from tests.messages.storage import TEST_FILE_NAME
 
 

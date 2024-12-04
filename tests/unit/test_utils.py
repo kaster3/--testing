@@ -1,4 +1,4 @@
-from app.utils import sort_tasks
+from app.utils.sort_tasks import sort_tasks
 
 
 def test_sort_tasks(created_tasks) -> None:

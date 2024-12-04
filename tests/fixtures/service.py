@@ -1,7 +1,7 @@
 import pytest
 
 from app.model import Category, Task, TaskPriority, TaskStatus
-from app.repository import TaskRepository
+from app.data_accesor_layer.repository import TaskRepository
 from app.service_layer import TaskService
 from app.service_layer.service_helper import ServiceHelper
 from tests.fixtures.storage import created_tasks

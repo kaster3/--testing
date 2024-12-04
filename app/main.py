@@ -1,9 +1,9 @@
-from messages.main.consts import MAIN_EXIT, WRONG_INPUT
-from messages.main.message_formatter import main_exception
-from repository import TaskRepository
-from service_layer import TaskService
-from service_layer.service_helper import ServiceHelper
-from storage import TaskStorage
+from app.messages.main.consts import MAIN_EXIT, WRONG_INPUT
+from app.messages.main.message_formatter import main_exception
+from app.data_accesor_layer.repository import TaskRepository
+from app.service_layer import TaskService
+from app.service_layer.service_helper import ServiceHelper
+from app.storage_layer.storage import TaskStorage
 
 
 def main(service: TaskService) -> None:

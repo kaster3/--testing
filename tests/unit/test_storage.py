@@ -3,7 +3,7 @@ import os
 from syrupy import SnapshotAssertion
 
 from app.model import Task
-from app.storage import TaskStorage
+from app.storage_layer.storage import TaskStorage
 from tests.messages.storage import TEST_FILE_NAME
 
 

@@ -2,7 +2,7 @@ import functools
 from typing import Callable
 
 from app.model import Task
-from app.utils import sort_tasks
+from app.utils.sort_tasks import sort_tasks
 
 
 def get_task(func) -> Callable:

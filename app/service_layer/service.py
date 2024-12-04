@@ -5,7 +5,7 @@ from app.messages.service.consts import (
     SHOW_TASKS_WRONG_INPUT,
 )
 from app.model import Category, Task, TaskStatus
-from app.repository import TaskRepository
+from app.data_accesor_layer.repository import TaskRepository
 from app.service_layer.dependencies import get_task, id_generator
 from app.service_layer.service_helper import ServiceHelper
 
